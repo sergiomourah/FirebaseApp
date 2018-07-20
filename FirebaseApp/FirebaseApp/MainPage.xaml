@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FirebaseApp"
+             x:Class="FirebaseApp.MainPage">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <ListView x:Name="list" ItemsSource="{Binding Pedidos}"
+                  ItemSelected="list_OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding Produto}"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           FontSize="15"/>
+
+                            <Label Text="{Binding Valor}"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           FontAttributes="Bold"
+                           FontSize="15"/>
+
+                            <Label Text="{Binding Cliente}"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           FontSize="12"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Command="{Binding AceitarPedidoCmd}" Text="Atender!"></Button>
+
+        <!--<Button Command="{Binding AceitarPedidoCmd}" Text="Atender!"></Button>
+
+        <Button Command="{Binding TirarFotoCmd}" Text="Tirar Foto" FontSize="20"></Button>
+
+        <Button Command="{Binding EscolherFotoCmd}" Text="Escolher Foto" FontSize="20"></Button>-->
+
+        <Button Text="Tirar Foto" Clicked="TirarFoto" FontSize="20"></Button>
+
+        <Button Text="Escolher Foto" Clicked="EscolherFoto" FontSize="20"></Button>
+
+        <Image x:Name="MinhaImagem" 
+                WidthRequest="400"
+                HeightRequest="220"/>
+    </StackLayout>
+
+</ContentPage>
